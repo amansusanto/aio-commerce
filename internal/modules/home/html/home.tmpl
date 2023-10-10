@@ -1,0 +1,82 @@
+{{ define "modules/home/html/home" }}
+    {{ template "templates/layouts/html/head" .}}
+    {{ template "templates/layouts/html/navbar" .}}
+    {{ template "templates/layouts/html/header" .}}
+        <!-- Begin Featured
+        ================================================== -->
+        <section class="featured-posts">
+            <div class="section-title">
+                <h2><span>Featured</span></h2>
+            </div>
+            <div class="card-columns listfeaturedtag">
+                {{ range .featured }}
+                <!-- begin post -->
+                <div class="card">
+                    <div class="row">
+                        <div class="col-md-5 wrapthumbnail">
+                            <a href="/products/{{.Code}}">
+                                <img class="img-fluid" src="/assets/img/products/{{ .Code }}.jpg">
+                            </a>
+                        </div>
+                        <div class="col-md-7">
+                            <div class="card-block">
+                                <h2 class="card-title"><a href="/products/{{.Code}}">{{ .Title}}</a></h2>
+                                <h4 class="card-text">{{ .ShortNotes }}</h4>
+                                <div class="metafooter">
+                                    <div class="wrapfooter">
+                                        <h4 class="card-text">Rp. {{ .Price }}</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end post -->
+                {{ end }}
+            </div>
+        </section>
+        <!-- End Featured
+        ================================================== -->
+
+        <!-- Begin List Posts
+        ================================================== -->
+        <section class="recent-posts">
+            <div class="section-title">
+                <h2><span>Products</span></h2>
+            </div>
+            <div class="card-columns listrecent">
+                {{ range .product }}
+                <!-- begin post -->
+                <div class="card">
+                    <a href="/products/{{.Code}}">
+                        <img class="img-fluid" src="/assets/img/products/{{ .Code }}.jpg" alt="{{ .Title }}">
+                    </a>
+                    <div class="card-block">
+                        <h2 class="card-title"><a href="/products/{{.Code}}">{{ .Title}}</a></h2>
+                        <h4 class="card-text">{{.ShortNotes}}</h4>
+                        <div class="metafooter">
+                            <div class="wrapfooter">
+						<span class="meta-footer-thumb">
+						<a href="#"><img class="author-thumb" alt="{{ .UserName }}"></a>
+						</span>
+                                <span class="author-meta">
+						<span class="post-name"><a href="#">{{ .UserName }}</a></span><br/>
+						</span>
+                                <span class="post-read-more">
+                                    <a href="#" title="Add To Cart">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16"> <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/> </svg>                                </a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end post -->
+                {{ end }}
+            </div>
+        </section>
+        <!-- End List Posts
+        ================================================== -->
+
+    {{ template "templates/layouts/html/footer" .}}
+    {{ template "templates/layouts/html/foot" .}}
+{{ end }}

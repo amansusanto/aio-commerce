@@ -1,0 +1,14 @@
+app:
+  name: "AIO Commerce"
+  Slogan: "Computers and Peripherals Supplier"
+
+server:
+  host: "192.168.1.6"
+  port: "8080"
+
+db:
+  username: "sa"
+  password: "Metasoft777"
+  host: "Metaserver"
+  port: "1433"
+  name: "AIODatabase"
